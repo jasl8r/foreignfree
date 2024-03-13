@@ -1,0 +1,13 @@
+namespace foreignfree {};
+
+[Trait, WithForeign]
+interface ForeignTrait {
+    [Async]
+    void on_async();
+};
+
+interface Runner {
+    constructor();
+    [Async]
+    void run(ForeignTrait foreign);
+};

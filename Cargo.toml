@@ -1,0 +1,23 @@
+[package]
+name = "foreignfree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib", "lib"]
+name = "foreignfree"
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "uniffi-bindgen.rs"
+
+[workspace.dependencies.uniffi]
+git = "https://github.com/bendk/uniffi-rs.git"
+branch = "async-trait-interfaces"
+
+[dependencies]
+async-trait = "0.1"
+uniffi = { workspace = true, features = [ "cli" ] }
+
+[build-dependencies]
+uniffi = { workspace = true, features = [ "build" ] }
